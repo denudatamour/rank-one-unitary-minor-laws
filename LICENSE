@@ -1,0 +1,12 @@
+Copyright (c) 2026 Haimin Zhou
+
+The manuscript, proof exposition, and documentation are licensed under
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+License text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+The Python programs and GitHub Actions workflow are licensed under the MIT
+License; see LICENSE-CODE for the full text. This covers construct_law.py,
+verify.py, verification/check_hashes.py, and .github/workflows/verify.yml.
+
+Third-party publications cited in the paper retain their original licenses.
+No third-party paper or supplementary repository is redistributed here.

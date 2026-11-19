@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying research note."
+title: "A common permutation law for the minors of a rank-one unitary perturbation"
+version: "2026-11-20-maintenance.1"
+date-released: 2026-11-20
+url: "https://github.com/denudatamour/rank-one-unitary-minor-laws"
+authors:
+  - family-names: "Zhou"
+    given-names: "Haimin"
+    affiliation: "Independent Researcher"
+    email: "haiminzhou.1@gmail.com"
+preferred-citation:
+  type: report
+  title: "A common permutation law for the minors of a rank-one unitary perturbation"
+  year: 2026
+  url: "https://github.com/denudatamour/rank-one-unitary-minor-laws"
+  authors:
+    - family-names: "Zhou"
+      given-names: "Haimin"
+      affiliation: "Independent Researcher"
+      email: "haiminzhou.1@gmail.com"

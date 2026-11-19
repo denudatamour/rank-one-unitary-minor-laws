@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14",
+  "dependencies": "Python standard library only",
+  "command": "python -B -S verify.py",
+  "exit_code": 0,
+  "checked_at": "2026-11-20T03:05:51.326693+08:00",
+  "scope": "Exact finite certificates; not a proof of the universal statements."
+}
