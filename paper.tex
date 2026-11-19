@@ -1,0 +1,203 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[letterpaper,left=.95in,right=.95in,top=.84in,bottom=.87in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=black]{hyperref}
+\hypersetup{pdftitle={A common permutation law for the minors of a rank-one unitary perturbation}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Prb}{\mathbb P}
+\newcommand{\K}{\mathcal K}
+\newcommand{\M}{\mathcal M}
+\newcommand{\dd}{\mathrm d}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\conv}{conv}
+\begin{document}
+\begin{center}
+{\LARGE A common permutation law for the minors\\[3pt] of a rank-one unitary perturbation\par}
+\vspace{8pt}
+{\small Research note \quad 20 November 2026}
+\end{center}
+\begin{abstract}
+For a unitary matrix acting by a phase on a line and by the identity on its orthogonal complement, we characterize the existence of a random permutation whose set images simultaneously realize the squared moduli of every minor. In dimension five the criterion is a single fourth-moment inequality. In all dimensions the minimum required mass on nonidentity permutations is the maximum of explicit quadratic functions indexed by signed set partitions. The proof constructs an optimizer by induction and a probability law by fractional triangle packing. We give a six-dimensional obstruction invisible to the expected number of moved points and explain its relation to a classical triangle-decomposition inequality.
+\end{abstract}
+
+\section{The probability problem}
+Write $[n]=\{1,\ldots,n\}$. A unitary $U$ has a \emph{common permutation law} if a probability measure on $S_n$ satisfies
+\begin{equation}\label{eq:law}
+  \Prb(\sigma(J)=I)=|\det U[I,J]|^2
+  \qquad (I,J\subseteq[n],\ |I|=|J|).
+\end{equation}
+The same measure occurs in every equation. This is the simultaneous compound-matrix condition of Merikoski and Virtanen \cite{MV}. Drury proved the ordinary determinantal inclusion for the phase perturbations studied here, and exhibited a five-point Householder reflection for which a common law fails \cite[Corollary 4 and section 3]{Drury}. Expanding a determinant in the diagonal entries of $D_a$ and then using Cauchy--Binet gives
+\[
+ \det(D_a+U D_b U^*)=
+ \sum_{|I|=|J|} a_{I^c} b_J |\det U[I,J]|^2,
+ \qquad a_S=\prod_{i\in S}a_i,\quad b_S=\prod_{i\in S}b_i .
+\]
+Under \eqref{eq:law} this equals $\mathbb E\prod_i(a_i+b_{\sigma^{-1}(i)})$ for every pair of complex spectra, including repetitions. The Marcus--de Oliveira conjecture for a given pair permits the weights to depend on its spectra.
+
+Let
+\[
+ U=I+(\zeta-1)vv^*,\quad v^*v=1,\quad |\zeta|=1,\quad
+ p_i=|v_i|^2,\quad c=|\zeta-1|^2,\quad q=\sum_i p_i^2 .
+\]
+The eigenspaces $\mathbb Cv$ and $v^\perp$ make $U$ unitary. The physical range of $c$ is $[0,4]$. For a partition $\mathcal P$ of $[n]$ and signs $\epsilon_i\in\{-1,1\}$, put $d_C=\sum_{i\in C}\epsilon_i p_i$.
+\begin{theorem}\label{thm:main}
+A common permutation law exists exactly when $cF(p)\le1$, where
+\begin{equation}\label{eq:partition}
+ F(p)=\frac14+\frac1{12}
+  \max_{\mathcal P,\epsilon}
+  \left[\left(\sum_{C\in\mathcal P}d_C\right)^2-4\sum_{C\in\mathcal P}d_C^2\right].
+\end{equation}
+For $n=5$ the criterion is $c(1-q)\le3$. For $n=6$, writing $a\ge b$ for the two largest masses, it is
+\[
+ c\bigl[1-q+b\max(2a+b-1,0)\bigr]\le3 .
+\]
+For $n\ge2$ the law exists for every unit vector $v$ exactly when
+$c\le\min\{4,3n/(n-1)\}$. For $n=1$ the identity law always works.
+\end{theorem}
+
+\section{From squared minors to capacities on triangles}
+Write $p(S)=\sum_{i\in S}p_i$. A principal minor has squared modulus
+$|1+(\zeta-1)p(J)|^2=1-cp(J)(1-p(J))$. If
+$I\setminus J=\{i\}$ and $J\setminus I=\{j\}$, its squared modulus is $cp_i p_j$. If $|I\setminus J|\ge2$ it vanishes. Indeed, multilinearity allows at most one column from the rank-one perturbation in a nonzero term. In the one-exchange case it must be the column indexed by $j$, and the remaining identity columns force its entry in row $i$.
+
+An atom of positive probability cannot send two elements of a set out of that set. Drury used a zero complementary minor to exclude four-cycles and double transpositions on four labels \cite[p.~164]{Drury}. In any dimension, if a permutation has two nontrivial cycles, choose one point in each. In a cycle of length at least four, choose two nonconsecutive points in cyclic order. Both choices violate the restriction. Thus only the identity, transpositions, and individual three-cycles can occur. In particular
+\begin{equation}\label{eq:moves}
+ \mathbb E\,|\{i:\sigma(i)\ne i\}|=\sum_i(1-|U_{ii}|^2)=c(1-q)\le3 .
+\end{equation}
+The minor data are symmetric in $I,J$, so a law may be averaged with its inverse. Write $t_{ij}$ for transposition probabilities and $r_T$ for the probability of \emph{each} orientation of the three-cycle on $T$. The one-exchange constraints are exactly
+\begin{equation}\label{eq:cap}
+ t_{ij}+\sum_{T\supseteq\{i,j\}}r_T=cp_i p_j .
+\end{equation}
+For a specified input set and exchange, precisely one orientation on each eligible triple realizes that exchange, whether its third point is in the input set or outside it. Within one column of the compound the probabilities sum to one. The total probability of the one-exchange events from $J$ is $cp(J)(1-p(J))$, so \eqref{eq:cap} also recovers its principal event after normalization.
+
+Put $E=\sum_{i<j}p_i p_j$ and consider the maximum fractional triangle packing
+\begin{equation}\label{eq:pack}
+ \tau(p)=\max\left\{\sum_T x_T:\ x_T\ge0,\
+       \sum_{T\supseteq\{i,j\}}x_T\le p_i p_j\quad(i<j)\right\}.
+\end{equation}
+For an optimal packing set $r_T=cx_T$ and take $t_{ij}$ equal to $c$ times the unused edge capacity. The mass on nonidentity atoms is $c(E-\tau(p))$. Conversely summing \eqref{eq:cap} gives the same expression with $\sum_T r_T/c$ in place of $\tau(p)$ for $c>0$. Thus $c(E-\tau(p))$ is the minimum mass needed to meet the exchange equations. When this mass is at most one, give the remainder to the identity. For $c=0$ use the identity directly.
+
+For the following induction let the masses be arbitrary nonnegative numbers of total $P$. Linear programming duality gives
+\begin{equation}\label{eq:dual}
+ E-\tau(p)=F(p)=
+ \max_{w\in\K_n}\sum_{i<j}p_i p_j w_{ij},\qquad
+ \K_n=\{0\le w_{ij}\le1,\quad w_{ij}+w_{ik}+w_{jk}\le2\}.
+\end{equation}
+Here and below triple constraints range over distinct vertices. Indeed a dual triangle cover has nonnegative edge weights $y$ with sum at least one on each triangle. Capping each $y$ at one preserves feasibility. Substitution $w=1-y$ yields \eqref{eq:dual}. Compactness ensures attainment for both programs. In particular zero capacities cause no difficulty.
+
+\section{An induction selecting an optimal metric}
+Let $\M_n$ be the subset of $\K_n$ also satisfying all ordinary triangle inequalities. Set $w_{ii}=0$ for calculations. The induction selects \emph{one} optimal point for the product objective. Points of $\K_n$ may violate the ordinary triangle inequalities.
+\begin{lemma}\label{lem:induct}
+There is an optimal $w\in\M_n$ obtained from a constant $2/3$ metric on one or more vertices by successive duplications. A duplicate of $i$ at distance zero copies all its distances. A duplicate at distance one has distance $1-w_{ik}$ to each other vertex $k$.
+\end{lemma}
+\begin{proof}
+For one vertex the assertion is immediate. Choose an optimal extreme point of $\K_n$.
+If $w_{ij}=0$, put $S_i=\sum_{k\ne i,j}p_k w_{ik}$ and define $S_j$ likewise. Copy the distances of the endpoint with larger score to the other endpoint. The change in objective is a nonnegative mass times $|S_i-S_j|$. All perimeter constraints are preserved, including those incident to both endpoints. Identifying them gives a smaller system with mass $p_i+p_j$ at the merged vertex. Conversely, any solution of the smaller system lifts by duplication at distance zero and retains its value. Hence solving that system and duplicating its optimal metric gives a global optimum. Ordinary triangle inequalities are preserved by this duplication.
+
+If $w_{ij}=1$, relabel the endpoints so that $a=p_i\ge p_j=b$. Keep $i$ with mass $a-b$, delete $j$, and call the smaller vector $r$. Peel a mass $b$ from each endpoint. Their mutual contribution is $b^2$. For each other vertex $k$, $w_{ik}+w_{jk}\le1$. For the remaining mass at $i$, the same sum equals one because $w_{ii}=0$. The contribution of the peeled mass to all residual masses is at most $b(P-2b)$. The residual objective is at most $F(r)$. The resulting bound is
+\begin{equation}\label{eq:peel}
+ F(p)\le b(P-b)+F(r).
+\end{equation}
+Take the smaller optimal metric $w'$ supplied by induction. Keep its entries and set $w_{ij}=1$, $w_{jk}=1-w'_{ik}$. A triangle through $i,j$ has lengths $1,t,1-t$. For $j,k,l$ the new perimeter bound follows from $w'_{kl}\le w'_{ik}+w'_{il}$. Its three ordinary triangle inequalities follow from the original perimeter bound and the other two original triangle inequalities on $i,k,l$. This lift attains \eqref{eq:peel} even for $a=b$ by retaining $i$ as a zero-mass vertex.
+
+If no edge is at a bound, the only active inequalities are triangle perimeters equal to two. The constant point $w_{ij}=2/3$ solves all those equations. The active equations at an extreme point have a unique solution, hence the chosen point is constant. All cases decrease the dimension or end at the stated metric.
+\end{proof}
+
+Group descendants of each original vertex into a block. Give a duplicate the sign of its parent at distance zero and the opposite sign at distance one. Within a block distances are zero for equal signs and one for opposite signs. Across blocks they are $2/3$ for equal signs and $1/3$ for opposite signs. Every signed partition defines a feasible metric of this form. To see this, duplicate the vertices of the constant metric at distance zero according to their blocks, then switch at all negative vertices, replacing a distance by its complement when just one endpoint is switched. On any triangle a switch complements either zero or two distances, permuting the perimeter and ordinary triangle inequalities.
+
+With $s_C=\sum_{i\in C}p_i$, a single block contributes $(s_C^2-d_C^2)/4$ to the objective. A pair of blocks contributes $s_Cs_D/2+d_Cd_D/6$. Summation gives
+\begin{equation}\label{eq:gen}
+ \frac{P^2}{4}+\frac{(\sum_C d_C)^2-4\sum_C d_C^2}{12}.
+\end{equation}
+Lemma~\ref{lem:induct} supplies one optimal signed partition and every partition is feasible. This proves \eqref{eq:partition} for $P=1$ and the homogeneous version for all $P$.
+
+\section{Five points, six points, and sharp uniform bounds}
+Normalize $P=1$ and let $M=\max_{S\subseteq[n]}p(S)(1-p(S))$. One block with two signs realizes any cut, so $F\ge M$. With at most four blocks, the constant metric $2/3$ on block labels is the mean of cut metrics. For four labels, take the uniform distribution on the three unordered balanced cuts. For fewer labels restrict this construction. Pullback to the vertices and switching preserve the cut-metric property. Such partitions have value at most $M$.
+
+With all blocks singletons, the sum of squared imbalances is $q$, and the largest absolute signed sum is one. The largest value is therefore $(1-q)/3$. This gives
+\[
+ F_5=\max\{M,(1-q)/3\}.
+\]
+Since $M\le1/4$ and $c\le4$, the five-point part of Theorem~\ref{thm:main} follows.
+
+On six points only a partition with five blocks remains. One pair shares a block. If its signs agree, replacing the pair by same-sign singletons preserves the total signed mass and decreases the sum of squares. If their masses are $u\ge v$ and their signs disagree, orient the blocks so their imbalances have the same sign. Their total imbalance is $1-2v$ and the sum of squares is $q-2uv$. Formula~\eqref{eq:gen} gives $(1-q+v(2u+v-1))/3$. Where the correction is positive, its derivatives in $u$ and $v$ are respectively $2v$ and $2u+2v-1>0$. The largest two masses therefore suffice. This proves the six-point criterion as well.
+
+For $m$ blocks one has $(\sum_C d_C)^2\le m\sum_C d_C^2$ and $|\sum_C d_C|\le1$. Thus \eqref{eq:gen} is at most $1/4$ for $m\le4$, and at most $(m-1)/(3m)$ for $m\ge4$. A cut with two equal nonzero masses gives $1/4$ in any $n\ge2$. For uniform masses the constant metric itself gives $(n-1)/(3n)$. Consequently $\sup_p F(p)=\max\{1/4,(n-1)/(3n)\}$, proving the last assertion of Theorem~\ref{thm:main}.
+
+\section{Constructions and an obstruction}
+\paragraph{A law without linear programming.}
+For $c\le3$, with probability $c/3$ sample three labels independently with distribution $p$ and otherwise return the identity. One distinct label gives the identity, two distinct labels give their transposition, and three distinct labels give the cycle in sample order. The resulting transposition and oriented three-cycle weights are $cp_i p_j(p_i+p_j)$ and $cp_i p_j p_k$. They satisfy \eqref{eq:cap}. These same explicit weights work for any physical $c$ with $c(1-\sum_i p_i^3)\le3$: their remaining identity mass is $1-(c/3)(1-\sum_i p_i^3)$.
+
+On five labels whenever $q\le1/4$, an explicit full packing is
+\[
+ x_T=(1-q)/6-p(T)(1-p(T))/2 .
+\]
+It is nonnegative since $p(T)(1-p(T))\le1/4$. For $s=p_i+p_j$, summation of $(s+p_k)(1-s-p_k)$ over the three remaining $k$ gives $1-q-2p_i p_j$. This yields equality on every edge. The identity then receives mass $1-c(1-q)/3$ whenever this is nonnegative.
+
+\paragraph{A continuous family on five labels.}
+For a reflection, $c=4$ and \eqref{eq:law} is equivalent to $\sum_i|v_i|^4\ge1/4$. Take $p=(t,(1-t)/4,(1-t)/4,(1-t)/4,(1-t)/4)$, $0\le t\le1$. The inequality reduces to $t(5t-2)\ge0$. At $t=2/5$ there are twelve oriented cycles containing the first label, each of mass $2/25$, and eight avoiding it, each of mass $1/200$. These weights sum to one and satisfy all exchange constraints. At the uniform point $t=1/5$, the minimum required mass is $16/15$.
+
+The boundary example $t=2/5$ also distinguishes the five-point construction from convex mixing of coordinate embeddings of the four-point phase family. Its expected number of moved labels is three. For an embedded phase block on at most four coordinates, $c(1-q)\le3$, with equality only for a reflection with four equal nonzero masses. If even the single-entry squared-modulus array of the boundary example were a mixture of such arrays, every component of positive weight would attain equality. In each component every diagonal squared modulus is either $1/4$ or $1$. The first diagonal squared modulus of our example is $(1-2t)^2=1/25$. This rules out the proposed mixing with the same coordinate labels. In particular the twenty-cycle construction supplies genuinely five-coordinate data.
+
+\paragraph{Six labels.}
+Take $p=(5,3,1,1,1,1)/12$ and $c=4$. Then $c(1-q)=53/18<3$. Merge the two largest masses with opposite signs, leaving the four singletons positive and the merged imbalance positive. Equation~\eqref{eq:gen} gives $109/432$. Thus the exchange constraints require mass $109/108>1$. The six-point formula proves this certificate is optimal.
+
+\paragraph{Interpretation for complete multipartite graphs.}
+For group sizes $g_i\in\mathbb N$, put $P=\sum_i g_i$ and use masses $g_i$ in \eqref{eq:pack}. A triangle between distinct groups $i,j,k$ may be weighted uniformly with weight $x_{ijk}/(g_i g_j g_k)$ per choice of vertices. Conversely aggregate every fractional packing by its group triples. These operations give the same optimum for $K_{g_1,\ldots,g_n}$ as for \eqref{eq:pack}. The minimum uncovered edge mass is
+\[
+ L=E-3\tau=3F-2E .
+\]
+For six groups with $a\ge b$ the two largest sizes, this reads
+\[
+ L=\max\{0,\ 3\max_S g(S)(P-g(S))-2E,\ b(2a+b-P)\}.
+\]
+In the example with sizes $(5,3,1,1,1,1)$, call the first two groups $A,B$ and denote singleton groups by distinct $i,j,k$. Put $x_{ABi}=3$, $x_{Aij}=2/3$, $x_{Bij}=0$, $x_{ijk}=1/6$. The total packing weight is $50/3$, and only edge $AB$ has unused capacity, of size three. This exhibits $E=53$, $L=3$ directly. The switch-on condition for the last term is the violation of Colbourn's necessary group-size condition $a\le P-a-b$ \cite[Lemma 2.1(3)]{Colbourn}. The star facet in \cite[Example 2.6]{Dukes} gives the same lower bound by evaluating its normal on the product capacities. For general $n$, \eqref{eq:gen} gives the entire optimum even for incomplete fractional packings.
+
+\section{Relation to earlier work}
+For rank-two $Z$ put $v_Z(\sigma)=\prod_i z_{i,\sigma(i)}$, and write $S_n^0$ for the identity, transpositions and individual three-cycles. Drury's Theorem~2 treats an arbitrary complex rank-one parameter. For $\zeta=e^{i\theta}$ his Corollary~4 explicitly puts $\det(Z\circ U)/\det U$ in
+\[
+  (1-c/4)v_Z(\mathrm{id})+(c/4)\conv\{v_Z(\sigma):\sigma\in S_n^0\}.
+\]
+This is an all-dimensional result on the ordinary determinantal inclusion, with convex weights allowed to depend on $Z$ \cite[pp.~160--161, equations (2)--(3)]{Drury}. Drury formulates the simultaneous condition separately in his equation~(8). His Theorem~7 proves it for reflections of order at most four \cite[pp.~162--164]{Drury}.
+
+There is a concrete sufficient range already implicit in his determinant expansion. Divide equation~(7) of \cite[p.~162]{Drury} by $\zeta$ and use $(\zeta-1)^2/\zeta=-c$. The resulting coefficients are $1-cE$ at the identity and $cp_ip_j$ at the transposition $(ij)$. These weights satisfy \eqref{eq:cap} with all $r_T=0$, and give a common probability law whenever $c(1-q)\le2$. For a triple $T$ the alternating permutation expansion of $\det Z[T,T]=0$, multiplied by $\prod_{k\notin T}z_{kk}$, trades its three transposition terms for the identity and the two oriented cycles. This explains why a triangle reallocation, including the explicit cubic weights above, is natural from Drury's formula. Determining the maximum total reallocation for each fixed $p$ is the optimization in \eqref{eq:pack}.
+
+The entire necessary half on five labels follows by re-evaluating Drury's separator \cite[p.~163]{Drury}, also reproduced in \cite[Example 3.2]{Homadi}. On two-element subsets $I,J$, put $m_{IJ}=1/2,-1/6,1/6$ according as $|I\setminus J|=0,1,2$. Its value on a permutation is $\sum_J m_{\sigma(J),J}$. Direct counting gives
+\[
+\begin{array}{c|rrrrrrr}
+ \text{cycle type}&1^5&2\,1^3&2^2 1&3\,1^2&3\,2&4\,1&5\\
+ \text{value}&5&1&1&-1&1&-1&0 .
+\end{array}
+\]
+On the squared minors, write $h=c(1-q)$. The diagonal mass is $10-3h$, the mass at distance one is $3h$, and the disjoint mass is zero. Indeed a specified ordered pair of distinct labels lies on opposite sides of exactly three two-element sets in the specified order. The old separator therefore has value $5-2h$ and requires $h\le3$. The five-point sufficiency in Theorem~\ref{thm:main} supplies a law up to and including equality.
+
+Laurent's five-point metric-polytope enumeration \cite[section 4.3, p.~152]{Laurent} gives the cut vertices and the switchings of the constant $2/3$ vertex. Duplication, switching, and product-weight symmetrization have classical precedents \cite[Proposition 2.3]{Laurent}, \cite[Proposition 2.1]{BET}. The five-point evaluation follows from the enumeration after proving that product weights admit a metric optimum for the relaxation \eqref{eq:dual}. Arbitrary nonnegative edge objectives can distinguish the two polyhedra. Give weight one to the five edges of a pentagon and zero to its chords. Its indicator attains five in $\K_5$; a cut separating four cycle edges attains four in $\M_5$. The upper bound of four follows by adding
+\[
+ w_{12}+w_{23}\le2-w_{13},\quad
+ w_{34}\le w_{13}+w_{14},\quad
+ w_{45}+w_{51}\le2-w_{14}.
+\]
+Poljak's equivalence for nonnegative weights uses constraints on odd cycles of \emph{all} lengths \cite[Theorem 4]{Poljak}. The gap inequalities of Laurent and Poljak \cite{Gap} solve the product objective over cuts by signed discrepancy. Already for $p_i=1/5$ the maximum cut has value $6/25$, while $F=4/15$.
+
+There is also a distinction between selecting an optimal metric and listing all metric vertices. Deza and Laurent describe all the noncut vertices up to six points by switching and extensions \cite[section 31.6]{Book}. On seven labels, split the labels into classes $A,B,C$ of sizes $3,3,1$, and use distance $2/3$ within a class and $1/3$ across classes. This is orbit 8 in Deza's \href{https://www.cas.mcmaster.ca/~deza/ext/metric_7.ext}{seven-point vertex catalogue}. For a short verification of extremality, for each $k$ outside $A$ the three tight equations $w_{aa'}=w_{ak}+w_{a'k}$ for distinct $a,a'\in A$ uniquely determine the three $w_{ak}$ from the distances within $A$. Thus each $a$ has a constant distance to all vertices outside $A$. Using two distinct vertices of $B$ and each $a$ shows all three constants are equal. The tight perimeter on $A$ forces their value to $1/3$. All distances inside $B$ are now fixed, and the same three equations on $B$ fix the distances to the singleton $C$. This determines every edge. A signed partition producing the point would have only singleton blocks, since it has no edge of weight zero or one. A representative of each of the three classes would then need to have signs opposite in every pair. This is impossible. The example illustrates that the signed partitions omit genuine metric vertices. The constant $2/3$ point dominates this particular vertex for every nonnegative objective.
+
+The known five-point inverse for the edge--triangle incidence matrix \cite[Proposition 2.2]{Dukes} underlies the explicit full packing above. Comparison with that triangle cone and with integer group-divisible designs requires distinguishing decomposition from maximum fractional packing \cite{Dukes,Colbourn}. Finally, Drury's boundary reduction \cite[Lemma 12, pp.~167--168]{Drury} optimizes a quadratic in the masses after fixing a spectral test and a supporting direction. Our optimization holds the masses fixed and chooses edge distances. Even allowing the masses to vary, the legal point $w\equiv2/3$ gives $(1-q)/3$, whose five-point maximum occurs uniquely at the interior uniform vector. The fixed-direction sufficiency and the all-dimensional optimizer selection proved here go beyond the conclusions of Drury's paper. We have not identified the same classification in the works compared above.
+
+\begin{thebibliography}{99}
+\small
+\setlength{\itemsep}{2pt}
+\bibitem{MV} J.~K. Merikoski and A.~Virtanen, Some notes on de Oliveira's determinantal conjecture, \emph{Linear Algebra Appl.} \textbf{121} (1989), 345--352. \href{https://doi.org/10.1016/0024-3795(89)90709-X}{DOI}.
+\bibitem{Drury} S.~W. Drury, OMC for Householder reflections, \emph{Linear Algebra Appl.} \textbf{298} (1999), 159--169. \href{https://doi.org/10.1016/S0024-3795(99)00173-1}{DOI}.
+\bibitem{Homadi} K. Homadi, \emph{Progress on the Marcus-de Oliveira Determinantal Conjecture}, master's thesis, Auburn University (2017). \href{https://etd.auburn.edu/handle/10415/5587}{Repository}.
+\bibitem{Laurent} M. Laurent, Graphic vertices of the metric polytope, \emph{Discrete Math.} \textbf{151} (1996), 131--153. \href{https://pure.uvt.nl/ws/portalfiles/portal/1215595/Metric.pdf}{Full text}.
+\bibitem{Book} M.~M. Deza and M. Laurent, \emph{Geometry of Cuts and Metrics}, Springer (1997), section 31.6. \href{https://doi.org/10.1007/978-3-642-04295-9}{Publisher}.
+\bibitem{Poljak} S. Poljak, Polyhedral and eigenvalue approximations of the max-cut problem, in \emph{Sets, Graphs and Numbers}, Colloquia Mathematica Societatis J\'anos Bolyai \textbf{60} (1992), 569--581. \href{https://korandi.org/docs/misc/setsgraphsnumbers/setsgraphsnumbers40.pdf}{Full text}.
+\bibitem{Gap} M. Laurent and S. Poljak, Gap inequalities for the cut polytope, \emph{European J. Combin.} \textbf{17} (1996), 233--254. \href{https://pure.uvt.nl/ws/portalfiles/portal/1216966/Gap.pdf}{Full text}.
+\bibitem{BET} P. Bennett, S. English and M. Talanda-Fisher, Weighted Tur\'an problems with applications, \emph{Discrete Math.} \textbf{342} (2019), 2165--2172. \href{https://arxiv.org/abs/1809.05028}{Author preprint}.
+\bibitem{Colbourn} C.~J. Colbourn, Small group divisible designs with block size three, \emph{J. Combin. Math. Combin. Comput.} \textbf{14} (1993), 153--171. \href{https://combinatorialpress.com/article/jcmcc/Volume\%2014/vol-14-paper\%2012.pdf}{Full text}.
+\bibitem{Dukes} C. Del Valle, P.~J. Dukes and K. Garaschuk, On the cone of weighted graphs generated by triangles, \emph{J. Combin. Math. Combin. Comput.} \textbf{116} (2021), 245--268. \href{https://arxiv.org/abs/1608.06017}{Author preprint}.
+\end{thebibliography}
+\end{document}
